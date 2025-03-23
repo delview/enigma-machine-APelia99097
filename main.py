@@ -27,12 +27,19 @@ def decrypt_message(encrypted_text, shift):
     # Empty string to store not the encrypted message later on
     decrypted_text = ""
     for charecter in encrypted_text: # loop through each charecter in encrypted text
-        if charecter.isalpha(): # cheking if the charecter are all 
-            shift_value = 65 if charecter.isupper() else 97  # ASCII value for A/a
+        if charecter.isalpha(): # cheking if the charecter are all alphebetical
+            shift_value = 65 if charecter.isupper() else 97  # same as line 10 and ll
+            # NOT THIS AGAIN
+            # Revers the shift (reversal red)
+            # ORD gets the ASCII values 
+            # Subtract shift value to normilize it A to 0 a to 0
+            # Subtract the shift value to return them to original place in alphabet
+            # the % 26 makes sure we loop around 
+            # add back shit to turn it back into charecters
             decrypted_text += chr((ord(charecter) - shift_value - shift) % 26 + shift_value)
         else:
             decrypted_text += charecter  # Non-alphabet characters remain unchanged
-    return decrypted_text
+    return decrypted_text # returns the decrypted message
 # Main Body
 
 def main():
