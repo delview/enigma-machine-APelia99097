@@ -16,10 +16,31 @@ def encrypt_message(plaintext, shift):
 def decrypt_message(encrypted_text, shift):
     decrypted_text = ""
     for charecter in encrypted_text:
-        if charecter.isaplpha():
+        if charecter.isalpha():
             shift_value = 65 if charecter.isupper() else 97  # ASCII value for A/a
             decrypted_text += chr((ord(charecter) - shift_value - shift) % 26 + shift_value)
         else:
             decrypted_text += charecter  # Non-alphabet characters remain unchanged
     return decrypted_text
 # Main Body
+
+def main():
+    print("Hello User, this is a simple Enigma Machine for the Caeser Cypher")
+
+    do_something = input("Would you like to [E]ncrypt or [D]ecrypt a message? " ).capitalize()
+
+    shift = int(input("Enter the shift value (1-25): "))
+
+    message = input("whats your message? ")
+
+    if do_something == "E":
+        output = encrypt_message(message, shift)
+        print(f"Encrypted Message: {output}")
+
+    elif do_something =="D":
+        output = decrypt_message(message, shift)
+        print(f"Decrypted Message: {output}")
+
+
+if __name__ == "__main__":
+    main()
