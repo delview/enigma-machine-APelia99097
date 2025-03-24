@@ -40,25 +40,48 @@ def decrypt_message(encrypted_text, shift):
         else:
             decrypted_text += charecter  # Non-alphabet characters remain unchanged
     return decrypted_text # returns the decrypted message
+
+
+def play_again():
+    play = input("Would you like to use this chypher machine again [Y] or [N] ").capitalize()
+    if play != "Y":
+        bye()
+    elif play == "Y":
+        main()
+    else:
+        bye()
+    
+
+def bye():
+    print("Have a nice day")
+    exit()
+
 # Main Body
 
 def main():
     # a simple statement to let the user know what the program is about
     print("Hello User, this is a simple Enigma Machine for the Caeser Cypher")
+    # asks the user there name
+    person = input("Whats your name user? ").capitalize
+
     # user gets to choose if they would like to encrypt or decrypt the message
-    do_something = input("Would you like to [E]ncrypt or [D]ecrypt a message? " ).capitalize()
+    do_something = input(f"Hello {person}, would you like to [E]ncrypt or [D]ecrypt a message? " ).capitalize()
     # shift value input so the cypher works
     shift = int(input("Enter the shift value (1-25): "))
     # the message that the user wants to do
     message = input("whats your message? ")
-    # checks if the user entered E or e so it calls the encrypt message function
+     # checks if the user entered E or e so it calls the encrypt message function
     if do_something == "E":
         output = encrypt_message(message, shift)
         print(f"Encrypted Message: {output}")
-    # checks if the user put and D or d and calls the decrypt message function
+        # checks if the user put and D or d and calls the decrypt message function
     elif do_something =="D":
         output = decrypt_message(message, shift)
         print(f"Decrypted Message: {output}")
+        
+    play_again()
+       
+        
 
     
 
