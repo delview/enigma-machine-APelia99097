@@ -68,8 +68,7 @@ def main():
     # a simple statement to let the user know what the program is about
     print("Hello User, this is a simple Enigma Machine for the Caeser Cypher")
     # asks the user there name
-    person = input("Whats your name user? ").capitalize
-
+    person = input("Whats your name user? ") 
     # user gets to choose if they would like to encrypt or decrypt the message
     do_something = input(f"Hello {person}, would you like to [E]ncrypt or [D]ecrypt a message? " ).capitalize()
     # shift value input so the cypher works
