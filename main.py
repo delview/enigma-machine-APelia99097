@@ -71,8 +71,20 @@ def main():
     person = input("Whats your name user? ") 
     # user gets to choose if they would like to encrypt or decrypt the message
     do_something = input(f"Hello {person}, would you like to [E]ncrypt or [D]ecrypt a message? " ).capitalize()
-    # shift value input so the cypher works
-    shift = int(input("Enter the shift value (1-25): "))
+    # a while true loop
+    while True:
+        try:
+            shift = int(input("Enter the shift value (1-25): "))
+            # checks if the input is inbetween 1 and 25
+            if 1 <= shift <= 25:
+                break  # if the input is valid it breaks the code
+            else: # otherwise
+                # prints to inform the user its input is not inbetween 1 and 25
+                print("Please enter a number between 1 and 25.")
+        except ValueError: # when the user doesnt tyoe in a number
+            # the program prints telling the user that there input isnt valid
+            print("Invalid input. Please enter a valid integer.")
+
     # the message that the user wants to do
     message = input("whats your message? ")
      # checks if the user entered E or e so it calls the encrypt message function
