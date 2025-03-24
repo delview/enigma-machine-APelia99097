@@ -42,19 +42,25 @@ def decrypt_message(encrypted_text, shift):
     return decrypted_text # returns the decrypted message
 
 
-def play_again():
+def play_again(): # function to play again
+    # user gets to choose id they wanna play again or not
     play = input("Would you like to use this chypher machine again [Y] or [N] ").capitalize()
+    # if play again is not equal to y then
     if play != "Y":
+    # calls the bye function
         bye()
+    # else if play is equal to y then
     elif play == "Y":
+    # call the main functin
         main()
+    # other wise call the bye function
     else:
         bye()
     
 
-def bye():
-    print("Have a nice day")
-    exit()
+def bye(): # a function to say goodbye
+    print("Have a nice day") # prints a message
+    exit() # exits the program
 
 # Main Body
 
@@ -78,7 +84,7 @@ def main():
     elif do_something =="D":
         output = decrypt_message(message, shift)
         print(f"Decrypted Message: {output}")
-        
+
     play_again()
        
         
